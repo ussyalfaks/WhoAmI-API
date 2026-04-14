@@ -11,6 +11,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "WhoAmI API is running",
+    usage: "GET /api/classify?name={name}",
+  });
+});
+
 app.get("/api/classify", async (req, res) => {
   const { name } = req.query;
 
